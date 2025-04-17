@@ -1,0 +1,46 @@
+{
+  "name": "typedoc-plugin-sort-enum",
+  "version": "1.0.0",
+  "description": "TypeDoc plugin to sort enum members by value",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "format": "npx prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "build": "tsc && echo '{\"type\":\"module\"}' > dist/package.json",
+    "prepublishOnly": "npm run format && npm run build",
+    "clean": "rm -rf dist && rm -rf docs",
+    "test": "npm run format && npm run clean && npm run build && npx typedoc --entryPoints src/test.ts --out docs --plugin ./dist/index.js --theme default"
+  },
+  "peerDependencies": {
+    "typescript": ">=4.0.0",
+    "typedoc": ">=0.24.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "typedoc": "^0.28.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diamont1001/typedoc-plugin-sort-enum.git"
+  },
+  "keywords": [
+    "typedoc",
+    "plugin",
+    "enum",
+    "sort"
+  ],
+  "author": {
+    "name": "Jingren Chen",
+    "url": "https://github.com/diamont1001"
+  },
+  "license": "MIT"
+}
